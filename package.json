@@ -1,0 +1,29 @@
+{
+  "name": "js-submodule",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./request-axios.js"
+    },
+    "./fetch": {
+      "import": "./request-fetch.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "optionalDependencies": {
+    "axios": "^1.0.0",
+    "node-fetch": "^3.0.0"
+  },
+  "files": [
+    "./reques-axios.js",
+    "./request-fetch.js"
+  ]
+}
