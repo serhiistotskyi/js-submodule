@@ -25,7 +25,9 @@ Both dependencies are listed as optional dependencies. To ensure that optional d
 npm install --omit=optional
 ```
 
-Previously it was possible to use optional peerDependencies (still possible) but now npm has a bug, it installs optional peer dependencies automatically (https://github.com/npm/cli/issues/2744). It doesn't hurt much, it still properly resolves version (relies on client-app version if it's in specified range) but we will cache all of those in our CI caches and it's just a waste of disk space and time during installation. So, instead of optional dependencies it's possible to define them via peerDependencies this way:
+Previously it was possible to [use optional `peerDependencies`](https://8hob.io/posts/difference-between-effects-of-dependencies-peerdependencies-npm-v7/) (still possible) but now npm has a bug, it installs optional peer dependencies automatically (https://github.com/npm/cli/issues/2744). It doesn't hurt much, it still properly resolves version (relies on client-app version if it's in specified range) but we will cache all of those in our CI caches and it's just a waste of disk space and time during installation.
+
+But instead of optional dependencies, it's possible to use optional `peerDependencies` this way:
 
 ```json
 {
@@ -44,3 +46,5 @@ Previously it was possible to use optional peerDependencies (still possible) but
     }
 }
 ```
+
+Adding `--legacy-peer-deps` probably should help to overcome the bug mentioned above (but I haven't tested this). Bug is few years old and unlikely will be fixed in foreseen future because optional dependencies is more an edge case than a common thing and doesn't influence many packages.
