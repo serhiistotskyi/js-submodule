@@ -1,5 +1,7 @@
 # js-submodule
 
+Single version for all submodules as there is a single package which is published to registry
+
 ## How to use this demo
 
 ```sh
